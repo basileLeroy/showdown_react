@@ -7,11 +7,8 @@ const Pokemon = () => {
     const id = new URLSearchParams(useLocation().search).get('id');
 
     useEffect(() => {
-        console.log(id)
-        // console.log(name)
         axios.get("https://pokeapi.co/api/v2/pokemon/"+id+"/")
             .then(function (res) {
-                console.log(res)
                 setDetails(res.data.abilities)
                 // console.log(res.data.abilities)
             })
