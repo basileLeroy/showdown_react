@@ -5,7 +5,7 @@ import axios from "axios";
 const ListOfPokemons = () => {
     const [pokemon, setPokemon] = useState([]);
     useEffect(()=> {
-        axios.get('https://pokeapi.co/api/v2/pokemon?limit=12')
+        axios.get('https://pokeapi.co/api/v2/pokemon?limit=96')
             .then(function (res) {
                 setPokemon(res.data.results)
                 // console.log(res.data.results)
