@@ -7,12 +7,13 @@ const Pokemon = () => {
     const [profileImage, setProfileImage] = useState("")
     const [name, setName] = useState("")
     const id = new URLSearchParams(useLocation().search).get('id');
-    const pokeName = new URLSearchParams(useLocation().search).get('name');
+
 
     useEffect(() => {
         axios.get("https://pokeapi.co/api/v2/pokemon/"+id+"/")
             .then(function (res) {
-                console.log(res.data.sprites.other.dream_world.front_default)
+                const pokeName = new URLSearchParams(useLocation().search).get('name');
+
                 setDetails(res.data.abilities)
                 setProfileImage(res.data.sprites.other.dream_world.front_default)
                 setName(pokeName)
