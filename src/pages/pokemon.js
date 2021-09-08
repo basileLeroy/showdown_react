@@ -7,12 +7,11 @@ const Pokemon = () => {
     const [profileImage, setProfileImage] = useState("")
     const [name, setName] = useState("")
     const id = new URLSearchParams(useLocation().search).get('id');
-
+    const pokeName = new URLSearchParams(useLocation().search).get('name');
 
     useEffect(() => {
         axios.get("https://pokeapi.co/api/v2/pokemon/"+id+"/")
             .then(function (res) {
-                const pokeName = new URLSearchParams(useLocation().search).get('name');
 
                 setDetails(res.data.abilities)
                 setProfileImage(res.data.sprites.other.dream_world.front_default)
@@ -23,7 +22,7 @@ const Pokemon = () => {
                 // handle error
                 console.log(err);
             })
-    }, [id])
+    }, [id, pokeName])
 
     // console.log(details)
 
