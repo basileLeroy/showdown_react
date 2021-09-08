@@ -16,7 +16,7 @@ const Pokemon = () => {
                 // handle error
                 console.log(err);
             })
-    }, [])
+    }, [id])
 
     // console.log(details)
 
